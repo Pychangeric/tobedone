@@ -1,40 +1,41 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
-
 
 function App() {
   const [list, setList] = useState([]);
   const [input, setInput] = useState("");
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
 
   const addToDo = (todo) => {
     const newToDo = {
       id: Math.random(),
       todo: todo,
-  };
+    };
 
     setList([...list, newToDo]);
+
     setInput("");
   };
 
   const deleteToDo = (id) => {
     const newList = list.filter((todo) => todo.id !== id);
+
     setList(newList);
   };
 
-  useEffect(() => {
+  const fetchUserData = () => {
     fetch("http://localhost:9292/")
-      .then((res) => res.json())
-      .then((json) => {
-        setList(json);
-      })
-      .catch((error) => {
-        console.log("Fetch error:", error);
+      .then((response) => response.json())
+      .then((data) => {
+        setUsers(data);
       });
-  }, []);
+  };
 
   return (
     <div>
-      
       <h1>To Do List</h1>
       <input
         type="text"
@@ -51,8 +52,18 @@ function App() {
           </li>
         ))}
       </ul>
+
+      {/* Display user data */}
+      <h2>User Data:</h2>
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>{user.name}</li>
+        ))}
+      </ul>
     </div>
   );
 }
 
 export default App;
+
+
