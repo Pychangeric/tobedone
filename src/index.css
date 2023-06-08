@@ -1,83 +1,73 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
-* {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: #8758ff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .App {
   text-align: center;
+  margin: 50px auto;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  color: #fff;
-  margin-bottom: 0.5rem;
-  font-size: 1.75rem;
+  margin-top: 0;
+  color: #333;
 }
 
-.TodoWrapper {
-  background: #1A1A40;
-  margin-top: 5rem;
-  padding: 2rem;
-  border-radius: 5px;
-}
-
-.TodoForm {
+input[type="text"] {
   width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-.todo-input {
-  outline: none;
-  background: none;
-  border: 1px solid #8758ff;
-  padding: 0.5rem 1rem;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  width: 300px;
-  color: #fff;
-}
-
-.todo-input::placeholder {
-  color: #ffffff4d;
-}
-
-.todo-btn {
-  background: #8758ff;
-  color: #fff;
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
   border: none;
-  padding: 0.55rem;
+  border-radius: 4px;
   cursor: pointer;
-  
 }
 
-.Todo {
+button:hover {
+  background-color: #45a049;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background: #8758ff;
-  color: #fff;
-  padding: 0.75rem 1rem;
-  border-radius: 5px;
-  margin-bottom: 1rem;
+  justify-content: space-between;
+  background-color: white;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+li button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 6px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
 }
 
-.fa-trash {
-  margin-left: 0.75rem;
+li button:hover {
+  background-color: #d32f2f;
 }
 
-.completed {
-  color: #c5aeff;
-  text-decoration: line-through;
-}
- 
+
