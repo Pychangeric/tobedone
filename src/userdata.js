@@ -4,6 +4,7 @@ function UserData() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -38,6 +39,13 @@ function UserData() {
     console.log('Email:', email);
     console.log('Password:', password);
 
+    // Simulating login failure
+    if (email === '' || password === '') {
+      setShowErrorMessage(true);
+    } else {
+      setShowErrorMessage(false);
+    }
+
     // Clear the input fields
     setEmail('');
     setPassword('');
@@ -46,6 +54,11 @@ function UserData() {
   return (
     <div>
       <h2>User Data</h2>
+      {showErrorMessage && (
+        <div>
+          <p>Login details not found. Please try again.</p>
+        </div>
+      )}
       <form>
         <div>
           <label htmlFor="username">Username:</label>
@@ -89,3 +102,4 @@ function UserData() {
 }
 
 export default UserData;
+
