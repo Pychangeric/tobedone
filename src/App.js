@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
+import UserData from './userdata';
+
 
 function App() {
   const [list, setList] = useState([]);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -16,18 +18,16 @@ function App() {
     };
 
     setList([...list, newToDo]);
-
-    setInput("");
+    setInput('');
   };
 
   const deleteToDo = (id) => {
     const newList = list.filter((todo) => todo.id !== id);
-
     setList(newList);
   };
 
   const fetchUserData = () => {
-    fetch("http://localhost:9292/")
+    fetch('http://localhost:9292/')
       .then((response) => response.json())
       .then((data) => {
         setUsers(data);
@@ -36,6 +36,7 @@ function App() {
 
   return (
     <div>
+      <UserData/>
       <h1>To Do List</h1>
       <input
         type="text"
@@ -53,7 +54,9 @@ function App() {
         ))}
       </ul>
 
-      {/* Display user data */}
+      {/* Render the UserData component */}
+      <UserData />
+
       <h2>User Data:</h2>
       <ul>
         {users.map((user) => (
@@ -65,5 +68,4 @@ function App() {
 }
 
 export default App;
-
 
