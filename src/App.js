@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import UserData from './userdata';
 
-
 function App() {
   const [list, setList] = useState([]);
   const [input, setInput] = useState('');
@@ -36,7 +35,8 @@ function App() {
 
   return (
     <div>
-      <UserData/>
+      <UserData />
+
       <h1>To Do List</h1>
       <input
         type="text"
@@ -54,9 +54,6 @@ function App() {
         ))}
       </ul>
 
-      {/* Render the UserData component */}
-      <UserData />
-
       <h2>User Data:</h2>
       <ul>
         {users.map((user) => (
@@ -68,4 +65,3 @@ function App() {
 }
 
 export default App;
-
